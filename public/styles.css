@@ -1,0 +1,336 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-image: url('jakub-zerdzicki-90oiU5NfTfI-unsplash.jpg'); */
+    background-image: url('kellen-riggin-LDkl1lAOov0-unsplash.jpg');
+    /* background-image: url('photo.jpg');
+     */
+                         
+
+    /* Ensure path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+@keyframes backgroundAnimation {
+    10% {
+        background-position: center top;
+    }
+    25% {
+        background-position: center bottom;
+    }
+    50% {
+        background-position: center top;
+    }
+}
+.header_fixed{
+    position: fixed; /* Makes the header fixed */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0;
+    width: 100%;
+    padding: 10px 20px; /* Padding around the header */
+    z-index: 1000; 
+}
+
+header {
+    background-color: #04374f; /* Background color for the header */
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: rgb(238, 17, 194);
+}
+
+nav {
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 30px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+}
+
+.animation, .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(60vh - 40px); /* Adjust height to fit below the header */
+    padding: 2px;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.animation {
+    animation: fadeInUp 2s ease-out forwards; /* Apply animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start from below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+footer {
+    background-color: #333; /* Background color for the footer */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#name {
+    color: rgb(253, 249, 253);
+    font-size: 70px;
+    margin: 0; /* Remove margin */
+    box-shadow: #fce916 3px;
+}
+
+#greeting {
+    font-size: 40px;
+    margin: 0; /* Remove margin */
+    color: purple;
+}
+
+#write {
+    font-size: 22px; /* Adjust size if needed */
+    margin: 0; /* Remove margin */
+    padding-left: 150px;
+    padding-right: 150px;
+    color: white;
+}
+
+.about {
+    font-size: 25px;
+    color: antiquewhite;
+}
+.uploads {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: end; /* Center buttons vertically */
+    gap: 100px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    margin-top: 0px; /* Margin to separate from other content */
+    padding-top: 0px;
+}
+
+button {
+    /* Text color */
+    padding: 12px 24px;  background-color: transparent; /* Transparent background */
+    border: 2px solid #a9c81e; /* Border color */
+    color: #f5f52e;/* Padding inside button */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Inline block element */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+button:hover {
+    background-color: #4CAF50; /* Green background on hover */
+    color: white; /* White text color on hover */
+}
+
+button:active {
+    background-color: #fce916; /* Darker green when clicked */
+    color: #fff; /* White text color when clicked */
+}
+.double-lines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0; /* Adjust space around the lines */
+}
+
+.double-lines::before,
+.double-lines::after {
+    content: "";
+    width: 100%; /* Adjust width as needed */
+    height: 1px; /* Thickness of the lines */
+    background-color: #f0f5f0; /* Line color */
+    margin: 3px 0; /* Space between the lines */
+}
+
+.double-lines::before {
+    border-top: 1px solid #f3f7f3; /* First line */
+}
+
+.double-lines::after {
+    border-bottom: 1px solid #e7ede7; /* Second line */
+}
+.setup {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    margin-top: 20px; /* Adjust this to control vertical placement */
+}
+
+.feature {
+    font-size: 36px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    padding: 10px 20px; /* Padding inside the border */
+    text-align: center; /* Center the text */
+    border: 2px solid black; /* Black border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 15px 5px yellow; /* Yellow shine shadow */
+    color: rgb(248, 247, 247); /* Text color */
+    background-color: rgb(12, 1, 1); /* Background color inside the border */
+}
+/* Container for all boxes */
+.box-container {
+    display: flex;
+    flex-wrap: wrap; /* Wrap boxes to next row if necessary */
+    justify-content: center; /* Center the boxes */
+    gap: 40px; /* Space between the boxes */
+    padding: 60px;
+}
+
+/* Individual boxes */
+.box {
+    width: 250px; /* Adjust box width */
+    padding: 20px;
+    
+    border: 2px solid black; /* Box border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #518cae; /* Light gray background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: inline-block; /* Allows inline-block alignment */
+    text-align: center; /* Center text in each box */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+/* Box hover effect */
+.box:hover {
+    transform: scale(1.05); /* Scale up the box slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+/* Box heading */
+.box-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* Box information paragraph */
+.box-info {
+    font-size: 1rem;
+    color: #f8f5f5;
+    line-height: 1.5;
+}
+.footer-about-me {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .footer-about {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .footer-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .footer-contact, .footer-social {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .footer-social a img {
+    width: 30px;
+    margin: 0 10px;
+  }
+  
+  .footer-contact a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-copyright {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+  }
+  #op{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .oop.logoutbtn {
+    /* Position relative to contain the absolutely positioned child */
+    margin-top: 0;
+}
+
+.logoutbtn {
+    position: fixed; /* Position fixed to always show in the top-right */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 12px 24px;
+    background-color: transparent;
+    border: 2px solid #a9c81e;
+    color: #f5f52e;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+

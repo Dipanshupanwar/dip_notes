@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Notes - VipinNotes</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Upload - here </h1>
+        <form id="uploadForm" method="post" action="/upload">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name"  placeholder="Enter your name" name="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="driveUrl">Google Drive URL:</label>
+                <input type="url" id="driveUrl" placeholder="Enter Drive URL" name="link" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject Name:</label>
+                <input type="text" id="subject" placeholder="Enter subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="option">Select sem (1 to 8):</label>
+                <select id="option" name="sem" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                    <option value="6">Option 6</option>
+                    <option value="7">Option 7</option>
+                    <option value="8">Option 8</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+            <p id="confirmationMessage"></p>
+        </form>
+    </div>
+
+    <script src="upload.js"></script>
+</body>
+</html>

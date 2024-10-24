@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #282c34;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .rate-container {
+            background: linear-gradient(145deg, #2f3640, #434a54);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .rate-container h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .star-rating label:hover,
+        .star-rating label.active {
+            color: #ffd700;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px #ffd700;
+        }
+        .animated-button {
+            background: linear-gradient(145deg, #ff6347, #ff4500);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .animated-button:hover {
+            background: linear-gradient(145deg, #ff4500, #ff6347);
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5);
+            transform: translateY(-3px);
+        }
+        .feedback-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #32cd32;
+        }
+    </style>
+</head>
+
+    <div class="rate-container">
+        <h2>Rate Us</h2>
+        <form id="rateForm" method="post" action="/rates">
+            <div class="star-rating">
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" data-value="1">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" data-value="2">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" data-value="3">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" data-value="4">&#9733;</label>
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5" data-value="5">&#9733;</label>
+            </div>
+            <input type="text" placeholder="Enter your username" name="username">
+            <button type="submit" class="animated-button" onclick="submitRating()">Submit Rating</button>
+            <div class="feedback-message" id="feedbackMessage">Thank you for your rating!</div>
+        </form>
+        
+    </div>
+
+    <script>
+        // Add event listeners to stars
+        const stars = document.querySelectorAll('.star-rating label');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const ratingValue = star.getAttribute('data-value');
+                updateStars(ratingValue);
+            });
+        });
+
+        // Update stars based on the selected rating
+        function updateStars(ratingValue) {
+            stars.forEach(star => {
+                star.classList.remove('active');
+                if (star.getAttribute('data-value') <= ratingValue) {
+                    star.classList.add('active');
+                }
+            });
+        }
+
+        function submitRating() {
+            const rating = document.querySelector('.star-rating input:checked');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+
+            if (rating) {
+                feedbackMessage.style.display = 'block';
+                feedbackMessage.textContent = `Thank you for rating us ${rating.value} stars!`;
+                feedbackMessage.style.color = '#32cd32';
+            } else {
+                feedbackMessage.style.display = 'block';
+                feedbackMessage.textContent = 'Please select a star rating.';
+                feedbackMessage.style.color = '#dc3545'; // Red color for error
+            }
+        }
+    </script>
+</body>
+</html>

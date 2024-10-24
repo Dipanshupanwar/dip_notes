@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dip Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .about-container {
+            background: linear-gradient(145deg, #6a82fb, #fc5c7d);
+            color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            text-align: center;
+            max-width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .about-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .about-container p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .animated-skill {
+            animation: bounce 2s infinite;
+            display: inline-block;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        img{
+            height: 370px;
+            width: 350px;
+        }
+        .contact{
+            display: flex;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p>Welcome to <strong>Dip Notes</strong>! We are dedicated to providing comprehensive resources such as notes, MST papers, and previous exam papers to help you excel in your academic journey.</p>
+        <p>This project is brought to you by <strong>Dipanshu Panwar</strong>, an IT student with a <strong>7.9 CGPA</strong> who is passionate about web development. As a professional <span class="animated-skill">MERN developer</span>, Dipanshu has utilized his skills in both frontend and full-stack development to bring this platform to life.</p>
+        <p>We aim to make learning easier and more accessible for students like you. Stay tuned as we continue to grow and add more valuable content to support your academic success.</p>
+   
+      <div class="contact-info">
+        <img src="1623659434027.jpg" alt="Dipanshu Panwar's Picture">
+        <h3>Dipanshu Panwar</h3>
+        <p>IT Student, CGPA: 7.9</p>
+        <p>Professional <span class="animated-skill">MERN Developer</span></p>
+        <h3>Contact Information</h3>
+        <div class="contact">
+            <p><strong>Phone:</strong> +91-9754957069</p>
+        <p><strong>Email:</strong> <a href="workdipanshu07@gmail.com">workdipanshu07@gmail.com</a></p>
+        <p><strong>Location:</strong> indore,India</p>
+        <h3>Social Links</h3>
+        <p><strong>LeetCode:</strong> <a href="https://leetcode.com/your_leetcode_id" target="_blank">your_leetcode_id</a></p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/your_instagram_id" target="_blank">@your_instagram_id</a></p>
+        <p><strong>HackerRank:</strong> <a href="https://hackerrank.com/your_hackerrank_id" target="_blank">your_hackerrank_id</a></p>
+        </div>
+        
+      </div>
+   </div>
+</body>
+</html>

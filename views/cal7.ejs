@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target CGPA Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Target CGPA Calculator</h1>
+        <form id="cgpaForm">
+            <div class="input-group">
+                <label for="sgpa1">Enter Your SGPA for Semester 1:</label>
+                <input type="number" id="sgpa1" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="sgpa2">Enter Your SGPA for Semester 2:</label>
+                <input type="number" id="sgpa2" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="sgpa3">Enter Your SGPA for Semester 3:</label>
+                <input type="number" id="sgpa3" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="sgpa4">Enter Your SGPA for Semester 4:</label>
+                <input type="number" id="sgpa4" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="sgpa5">Enter Your SGPA for Semester 5:</label>
+                <input type="number" id="sgpa5" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="sgpa6">Enter Your SGPA for Semester 6:</label>
+                <input type="number" id="sgpa6" placeholder="Enter SGPA (e.g., 8.5)" step="0.01" min="0" max="10" required>
+            </div>
+            <div class="input-group">
+                <label for="targetCgpa">Enter Your Target CGPA:</label>
+                <input type="number" id="targetCgpa" placeholder="Enter Target CGPA (e.g., 9.0)" step="0.01" min="0" max="10" required>
+            </div>
+            
+            <button type="button" id="calculateCGPA">Calculate Current CGPA</button>
+        </form>
+        <p id="result"></p>
+    </div>
+    <script src="cal7.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-image: url('jakub-zerdzicki-90oiU5NfTfI-unsplash.jpg'); */
+    background-image: url('kellen-riggin-LDkl1lAOov0-unsplash.jpg');
+    /* background-image: url('photo.jpg');
+     */
+                         
+
+    /* Ensure path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #efe6e6;
+    background-color: black;
+    border: 2px solid black;
+}
+
+/* Styling semester buttons */
+.semesters {
+    margin-bottom: 20px;
+}
+
+.semester-btn {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.semester-btn:hover {
+    background-color: #3700b3;
+}
+
+/* Styling upload button */
+.upload button {
+    background-color: #03dac6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin-left: 45%;
+}
+
+.upload button:hover {
+    background-color: #018786;
+}

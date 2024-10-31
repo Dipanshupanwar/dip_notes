@@ -5,6 +5,7 @@ const path = require("path");
 const methodOverride = require('method-override');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const crypto = require('crypto');
 const port = 3000;
 
 
@@ -24,6 +25,23 @@ const connection = mysql.createConnection({
     database: 'dip_notes',
     password:'coderdip07'
   });
+  let verificationCodes = {};
+// nodmailer thinks
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure:'true',
+    port:'465',
+    auth: {
+      user: 'diprdx2598@gmail.com', // Your Gmail address
+      pass: 'xysl ouyd know ejfd'
+    },
+    tls: {
+      rejectUnauthorized: false, // This allows self-signed certificates
+    },
+  });
+
+
+
   app.get("/home",(req,res)=>{
     res.render("home");
 })
@@ -66,26 +84,46 @@ app.post("/signup", (req, res) => {
   let { username, email, password, pass } = req.body;
 
   // Check if the email or passwords are missing/invalid
-  if (!email) {
-      return res.render("sign_up", { message: 'Email is required' });
-  }
+  
+  // Generate a random verification code
+  const verificationCode = crypto.randomInt(100000, 999999);
 
-  if (password !== pass) {
-      return res.render("sign_up", { message: 'Passwords do not match' });
-  }
+  // Store the code temporarily (should be stored in DB for better security)
+  verificationCodes[email] = verificationCode;
+  const mailOptions = {
+    from: 'diprdx2598@gmail.com',
+    to: email,
+    subject: 'Verification Code for Dip Notes',
+    text: `Your verification code is: ${verificationCode}`
+};
+
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        console.error('Error sending email:', error);
+        return res.render("sign_up", { message: 'Error sending verification email' });
+    }
+    console.log('Verification email sent:', info.response);
+    // Redirect to a page where user can enter the verification code
+    console.log( verificationCode);
+
+    res.render("verify", { email, username, password });
+});
+});
+
+
 
   // SQL query to insert user data into the database
-  const q = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
-  connection.query(q, [username, email, password], (err, result) => {
-      if (err) {
-          console.error('Error inserting data:', err);
-          return res.status(500).render("sign_up", { message: 'Server error' });
-      }
+//   const q = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
+//   connection.query(q, [username, email, password], (err, result) => {
+//       if (err) {
+//           console.error('Error inserting data:', err);
+//           return res.status(500).render("sign_up", { message: 'Server error' });
+//       }
 
-      // If successful, redirect to the login page
-      res.redirect("/login");
-  });
-});
+//       // If successful, redirect to the login page
+//       res.redirect("/login");
+//   });
+// });
 
   app.get("/upload",(req,res)=>{
    res.render("upload");
@@ -163,10 +201,14 @@ app.post("/mailoptions", (req, res) => {
     res.render("feed", { message: "There was an error sending the message." });
   }
 });
-app.get ("/rate", (req,res)=>{
-  res.render("rate");
-})
-app.post('/rates', (req, res) => {
+app.get('/rate', (req, res) => {
+  const q = 'SELECT username, rating FROM ratings';
+  connection.query(q, (err, results) => {
+      if (err) throw err;
+      res.render('rate', { ratings: results }); // Pass ratings to the view
+  });
+});
+app.post('/rate', (req, res) => {
   const { username, rating } = req.body;
 
   // Check if both username and rating are provided
@@ -176,15 +218,28 @@ app.post('/rates', (req, res) => {
 
   // SQL query to insert the rating
   const sql = 'INSERT INTO ratings (username, rating) VALUES (?, ?)';
-connection.query(sql, [username , rating], (err, result) => {
+  connection.query(sql, [username, rating], (err, result) => {
       if (err) {
           console.error('Error inserting data: ', err);
           res.status(500).send('Server error');
           return;
       }
-      res.redirect('rate'); // Redirect back to the rate us page
+
+      // After inserting the new rating, fetch all the ratings
+      const fetchQuery = 'SELECT username, rating FROM ratings';
+      connection.query(fetchQuery, (fetchErr, ratings) => {
+          if (fetchErr) {
+              console.error('Error fetching data: ', fetchErr);
+              res.status(500).send('Server error');
+              return;
+          }
+
+          // Render the rate page with the updated ratings
+          res.render('rate', { ratings: ratings });
+      });
   });
 });
+
 app.get ("/about",(req,res)=>{
   res.render("about_us")
 })
@@ -201,7 +256,37 @@ app.get("/mainhome",(req,res)=>{
   res.render("mainhome");
 })
 
+app.get("/verify", (req, res) => {
+  res.render("verify", { email: req.query.email });
+});
 
+app.post("/verify", (req, res) => {
+  const { email, code, username, password } = req.body;
+
+  // Verify the entered code
+  if (verificationCodes[email] == code) {
+      // If code matches, save the user in the database
+      const query = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
+      connection.query(query, [username, email, password], (err, result) => {
+          if (err) {
+              console.error('Error inserting data:', err);
+              return res.status(500).render("sign_up", { message: 'Server error' });
+          }
+
+          // Clean up the stored verification code
+          delete verificationCodes[email];
+
+          // If successful, redirect to the login page
+          res.redirect("/login");
+      });
+  } else {
+      res.render("verify", { email, username, password, message: 'Invalid verification code' });
+  }
+});
+
+app.get("/semester/7",(req,res)=>{
+  res.render("sem7");
+})
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

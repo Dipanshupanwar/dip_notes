@@ -1,0 +1,55 @@
+.header_fixed{
+    position: fixed; /* Makes the header fixed */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0;
+    width: 100%;
+    padding: 10px 20px; /* Padding around the header */
+    z-index: 1000; 
+}
+
+header {
+    background-color: #04374f; /* Background color for the header */
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: rgb(238, 17, 194);
+}
+
+nav {
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 30px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+}

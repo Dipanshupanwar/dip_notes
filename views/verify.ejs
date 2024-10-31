@@ -58,10 +58,13 @@
     <div class="verify-container">
         <h2>Verify OTP</h2>
         <form id="verifyOtpForm" method="post" action="/verify">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="password" value="<%= password %>">
             <input type="text" name="email" placeholder="Enter your email" required>
-            <input type="text" name="otp" placeholder="Enter the OTP" required>
+            <input type="text" name="code" placeholder="Enter the OTP" required>
             <button type="submit">Verify OTP</button>
         </form>
+        
         <div class="message" id="message"></div>
     </div>
 </body>

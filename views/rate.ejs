@@ -5,78 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate Us</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #282c34;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff;
-        }
-        .rate-container {
-            background: linear-gradient(145deg, #2f3640, #434a54);
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-        .rate-container h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-        }
-        .star-rating {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-        .star-rating input {
-            display: none;
-        }
-        .star-rating label {
-            cursor: pointer;
-            color: #888;
-            transition: color 0.3s, transform 0.3s;
-        }
-        .star-rating label:hover,
-        .star-rating label.active {
-            color: #ffd700;
-            transform: scale(1.2);
-            text-shadow: 0 0 10px #ffd700;
-        }
-        .animated-button {
-            background: linear-gradient(145deg, #ff6347, #ff4500);
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            font-size: 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
-        }
-        .animated-button:hover {
-            background: linear-gradient(145deg, #ff4500, #ff6347);
-            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5);
-            transform: translateY(-3px);
-        }
-        .feedback-message {
-            display: none;
-            margin-top: 20px;
-            font-size: 16px;
-            color: #32cd32;
-        }
+     body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1d1f27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #f0f0f0;
+    padding-top: 80px; /* Adjust this value based on your header height */
+}
+
+.header_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    background-color: #04374f;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: #ee11c2;
+}
+
+nav .nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0 20px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+.rate-container {
+    background: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    margin: 20px auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.rate-container:hover {
+    transform: scale(1.03);
+}
+
+.rate-container h2 {
+    font-size: 24px;
+    color: #ffd700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.star-rating label.active {
+    color: #ffd700; /* Gold color for active stars */
+}
+
+.star-rating label:hover ~ label,
+.star-rating label:hover {
+    color: #ffd700;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    background-color: #34495e;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    color: #bbb;
+}
+
+.animated-button {
+    background: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.animated-button:hover {
+    background: #ff4500;
+    transform: translateY(-2px);
+}
+
+.feedback-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.ratings-list {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.ratings-list h3 {
+    font-size: 20px;
+    color: #32cd32;
+}
+
+.ratings-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ratings-list li {
+    background: #3b4148;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    color: #eee;
+}
+
+
+
     </style>
 </head>
+       
+<header class="header_fixed">
+    <div class="container">
+        <h1 class="site-title">Dip Notes</h1>
+  <nav>
+                  <ul class="nav-list">
+                <li><a href="/mainhome">Home</a></li>
+                <li><a href="/gyaan">Academics</a></li>
+                <li><a href="/academics">Upload</a></li>
+                <li><a href="/extras">Extras</a></li>
+                <li><a href="/feedback">Feedback</a></li>
+                <li><a href="/rate"> rate us</a></li>
+                <li><a href="/about">About Us</a></li>
+                <form method="get" action="/login">
+                    <div class="oop">
+                       
+                        <button id="logoutbtn" class="logoutbtn" style="border: red;">Log0ut</button>
+                       
+                    </div>
+                </form>
+                
+                    
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <div class="rate-container">
         <h2>Rate Us</h2>
-        <form id="rateForm" method="post" action="/rates">
+        <form id="rateForm" method="post" action="/rate">
             <div class="star-rating">
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1" data-value="1">&#9733;</label>
@@ -93,43 +234,59 @@
             <button type="submit" class="animated-button" onclick="submitRating()">Submit Rating</button>
             <div class="feedback-message" id="feedbackMessage">Thank you for your rating!</div>
         </form>
-        
+        <div class="ratings-list">
+            <h3>Previous Ratings:</h3>
+            <% if (ratings && ratings.length > 0) { %>
+                <ul>
+                    <% ratings.forEach(function(rating) { %>
+                        <li><strong><%= rating.username %></strong>: <%= rating.rating %> stars</li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No ratings available.</p>
+            <% } %>
+        </div>
     </div>
 
     <script>
-        // Add event listeners to stars
-        const stars = document.querySelectorAll('.star-rating label');
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                const ratingValue = star.getAttribute('data-value');
-                updateStars(ratingValue);
-            });
-        });
+       // Add event listeners to stars
+const stars = document.querySelectorAll('.star-rating label');
+const starInputs = document.querySelectorAll('.star-rating input');
 
-        // Update stars based on the selected rating
-        function updateStars(ratingValue) {
-            stars.forEach(star => {
-                star.classList.remove('active');
-                if (star.getAttribute('data-value') <= ratingValue) {
-                    star.classList.add('active');
-                }
-            });
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        const ratingValue = index + 1;
+        updateStars(ratingValue);
+    });
+});
+
+// Update stars based on the selected rating
+function updateStars(ratingValue) {
+    stars.forEach((star, index) => {
+        if (index < ratingValue) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
         }
+    });
+}
 
-        function submitRating() {
-            const rating = document.querySelector('.star-rating input:checked');
-            const feedbackMessage = document.getElementById('feedbackMessage');
+function submitRating() {
+    const ratingInput = document.querySelector('.star-rating input:checked');
+    const feedbackMessage = document.getElementById('feedbackMessage');
 
-            if (rating) {
-                feedbackMessage.style.display = 'block';
-                feedbackMessage.textContent = `Thank you for rating us ${rating.value} stars!`;
-                feedbackMessage.style.color = '#32cd32';
-            } else {
-                feedbackMessage.style.display = 'block';
-                feedbackMessage.textContent = 'Please select a star rating.';
-                feedbackMessage.style.color = '#dc3545'; // Red color for error
-            }
-        }
+    if (ratingInput) {
+        feedbackMessage.style.display = 'block';
+        feedbackMessage.textContent = `Thank you for rating us ${ratingInput.value} stars!`;
+        feedbackMessage.style.color = '#32cd32';
+    } else {
+        feedbackMessage.style.display = 'block';
+        feedbackMessage.textContent = 'Please select a star rating.';
+        feedbackMessage.style.color = '#dc3545'; // Red color for error
+    }
+}
+
+
     </script>
 </body>
 </html>

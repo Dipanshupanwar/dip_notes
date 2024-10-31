@@ -183,6 +183,10 @@ input[type="text"]::placeholder {
     margin-bottom: 8px;
     color: #eee;
 }
+.ratings-list {
+    display: none;
+}
+
 
 
 
@@ -234,7 +238,11 @@ input[type="text"]::placeholder {
             <button type="submit" class="animated-button" onclick="submitRating()">Submit Rating</button>
             <div class="feedback-message" id="feedbackMessage">Thank you for your rating!</div>
         </form>
-        <div class="ratings-list">
+        
+        <!-- "Show Ratings" button -->
+        <button class="animated-button" onclick="toggleRatings()">Show Ratings</button>
+        
+        <div class="ratings-list" id="ratingsList">
             <h3>Previous Ratings:</h3>
             <% if (ratings && ratings.length > 0) { %>
                 <ul>
@@ -248,10 +256,12 @@ input[type="text"]::placeholder {
         </div>
     </div>
 
+
     <script>
        // Add event listeners to stars
 const stars = document.querySelectorAll('.star-rating label');
 const starInputs = document.querySelectorAll('.star-rating input');
+
 
 stars.forEach((star, index) => {
     star.addEventListener('click', () => {
@@ -270,6 +280,10 @@ function updateStars(ratingValue) {
         }
     });
 }
+function toggleRatings() {
+            const ratingsList = document.getElementById('ratingsList');
+            ratingsList.style.display = ratingsList.style.display === 'none' ? 'block' : 'none';
+        }
 
 function submitRating() {
     const ratingInput = document.querySelector('.star-rating input:checked');

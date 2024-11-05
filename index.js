@@ -43,7 +43,7 @@ const connection = mysql.createConnection({
 
 
   app.get("/home",(req,res)=>{
-    res.render("home");
+    res.render("index");
 })
 app.get("/login",(req,res)=>{
   let message ="";

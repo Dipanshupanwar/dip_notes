@@ -343,14 +343,14 @@ button:active {
 @media (max-width: 768px) {
     .logoutbtn {
       left: 3px;
-      margin-top: 10px;
+      margin-top: 40px;
       top: 45px;
-      width: 100px;
+      width: 90px;
         padding: 6px 12px;
         background-color: transparent;
         border: 2px solid #a9c81e;
         color: #f5f52e;
-        font-size: 8px;
+        font-size: 9px;
         font-weight: bold;
         border-radius: 4px;
         cursor: pointer;
@@ -404,15 +404,18 @@ button:active {
 }
 
 @media (max-width: 480px) {
-    #op{
+    .animation, .about {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 80px;
-        gap: 10px;
-        width: 100px;
-        left: 100px;
-      }
+        align-items: center;
+        height: calc(60vh - 40px); /* Adjust height to fit below the header */
+        padding: 2%;
+        text-align: center;
+        margin-top: 40%;
+    }
+    
+   
     .nav-list.show {
         display: flex; /* Show nav list when 'show' class is added */
     }
